@@ -1,0 +1,38 @@
+version: '2'
+
+services:
+  mariadb:
+       image: mariadb:latest
+       environment:
+         - MYSQL_ROOT_PASSWORD=password1
+         - MYSQL_DATABASE=phpipam
+         - MYSQL_USER=phpipam
+         - MYSQL_PASSWORD=NieWyobrazalneHaslo
+       restart: always
+       logging:
+        driver: json-file
+        options:
+          max-size: "100m"
+          max-file: "3"
+          labels: "mariadb"
+
+  phpipam:
+       image: phpipam:latest
+       environment:
+          - MYSQL_DB_HOSTNAME=mariadb
+          - MYSQL_DB_USERNAME=phpipam
+          - MYSQL_DB_PASSWORD=NieWyobrazalneHaslo
+          - MYSQL_DB_NAME=phpipam
+          - MYSQL_DB_PORT=3306       
+       ports:
+          - "8181:80"
+       restart: always
+       depends_on:
+          - mariadb       
+       logging:
+         driver: json-file
+         options:
+           max-size: "100m"
+           max-file: "3"
+           labels: "phpipam"
+
