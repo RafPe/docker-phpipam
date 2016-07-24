@@ -3,6 +3,25 @@ phpipam is an open-source web IP address management application. Its goal is to 
 
 Goal of this repository is to provide a lightweight docker image that can be used to have applciation running quickly. 
 
+## Running the application 
+I have tried to make it as simple as possible to run the application quickly. Therefore you can use docker-compose or just docker engine itself to start.
+
+### Requirements 
+Application does require backend database. For purposes of scaling and seperation of processes I have not bundled the database in single container. Therefore if not using the bundle/docker-compose you need to provide details for database connection. 
+
+
+### Docker compose 
+```
+wget https://raw.githubusercontent.com/RafPe/docker-phpipam/master/docker-compose.yml
+docker-compose up -d 
+```
+
+### Docker engine 
+```
+docker run -d --name SomeIPAMname rafpe/docker-phpipam
+```
+
+
 Image supports the use of the following env variables.
 
 **MYSQL_DB_HOSTNAME** jdjdjd  
