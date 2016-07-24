@@ -23,16 +23,15 @@ services:
           - MYSQL_DB_USERNAME=phpipam
           - MYSQL_DB_PASSWORD=NieWyobrazalneHaslo
           - MYSQL_DB_NAME=phpipam
-          - MYSQL_DB_PORT=3306       
+          - MYSQL_DB_PORT=3306
        ports:
-          - "8181:80"
+          - "127.0.0.1:8181:80"
        restart: always
        depends_on:
-          - mariadb       
+          - mariadb
        logging:
          driver: json-file
          options:
            max-size: "100m"
            max-file: "3"
            labels: "phpipam"
-
