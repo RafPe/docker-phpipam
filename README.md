@@ -64,3 +64,6 @@ PROXY_USER     # Proxy Username
 PROXY_PASS     # Proxy Password  
 PROXY_USEAUTH  # Enable/Disable Proxy authentication  
 ```
+
+## Change log
+* **v1.0.0** : Initial documentation and blog write up.
